@@ -45,7 +45,7 @@ Fig. 2 Prediction performance of CoVFit.
  B) Scatter plot for fitness prediction, aggregating results from five-fold cross1071 validation. Dot denotes the result of a 
     certain viral genotype in a specific country. Dot is colored by the Nextclade clade. The relative fitness value was scaled 
     so that the 0.1 percentile and 99.9 percentile points fall between 0 and 1. A dashed line with a slope 1 and intercept 0 
-    is shown.
+    is shown.  
  C) Scatter plot inherited from (B) but colored by the emergence date of each genotype.  
  
 ### CoVFit对未知、未来变体的预测性能
