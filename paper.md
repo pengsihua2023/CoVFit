@@ -127,13 +127,12 @@ D) Effect of F456L on the S protein’s expression (stability) and ACE2-binding 
 这种体外DMS分析确定了位点F456、K478和R346的替换具有最高的预测适应性增益（图6A和6B）。为了验证这些预测，我们将它们与2024年3月11日的最新基因组监测数据进行了比较。值得注意的是，携带F456、K478、R346或F456和R346组合替换的新兴JN.1亚系正在全球JN.1群体中迅速扩张（图6C）。这些结果表明CoVFitNov23成功预测了这些JN.1亚系相较于其亲本JN.1的更高适应性——有效地在它们出现或被检测到之前。综合来看，这些结果突显了基于CoVFit的模拟分析能力，能预先预测具有更高流行潜力的变体的出现。 
 
 ![fig6](/Figures/fig6.png)
- Fig. 6 CoVFit-based in silico DMS on the JN.1 variant.
+ Fig. 6 CoVFit-based in silico DMS on the JN.1 variant.  
  A) Ranking of amino acid sites regarding the fitness gain [per site] score inferred by in silico DMS with CoVFitNov23 on the 
-    S protein of JN.1. Only sites with positive score are shown.
- B) Heatmap depicting inferred fitness gain by each amino acid substitution.
- C) Change in frequency of JN.1 subvariants harboring substitutions in specific amino acid sites, within the JN.1 population. 
-    The genome surveillance data from December 1, 2023, to February 29, 2024, was used. Frequencies were calculated using 7- 
-    day bins. Total sequence number 1166 is shown for each viral group.
+    S protein of JN.1. Only sites with positive score are shown.  
+ B) Heatmap depicting inferred fitness gain by each amino acid substitution.  
+ C) Change in frequency of JN.1 subvariants harboring substitutions in specific amino acid sites, within the JN.1 population.      The genome surveillance data from December 1, 2023, to February 29, 2024, was used. Frequencies were calculated using 7- 
+    day bins. Total sequence number 1166 is shown for each viral group.  
 
 ### CoVFit-CLI工具
 
