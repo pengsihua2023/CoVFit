@@ -25,9 +25,9 @@ SARS-CoV-2的进化过程可以分为顺序和非顺序（或跃变式）两种�
 ![fig1](/Figures/fig1.png)
 
 Fig. 1 Overview of CoVFit.
- A) Conceptual framework of CoVFit. CoVFit is a protein language model designed to predict the relative fitness (Re) of SARS- 
+A) Conceptual framework of CoVFit. CoVFit is a protein language model designed to predict the relative fitness (Re) of SARS- 
     CoV-2 variants based  on their S protein sequences.  
- B) Outline of the training process used to develop CoVFit model instances.  
+B) Outline of the training process used to develop CoVFit model instances.  
 
 为了组建基因型–适应性数据集，我们首先将病毒序列分类为S蛋白基因型，定义为一组共享S蛋白中一组独特突变的病毒。随后，我们通过将多项逻辑模型拟合至2023年11月2日前从GISAID（https://gisaid.org/）获得的基因组监测数据，估算了每个基因型在每个国家的Re，如之前所述。因此，我们获得了总共21,751个基因型–适应性数据点，涵盖了17个国家中的12,914个基因型（见图1B和图S2A）。与先前的研究一致，后期出现的变体展示出更高的Re值，表明变体的Re在进化过程中逐渐增加（见图S2A）。  
 
