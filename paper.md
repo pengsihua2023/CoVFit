@@ -24,7 +24,7 @@ SARS-CoV-2的进化过程可以分为顺序和非顺序（或跃变式）两种�
 
 ![fig1](/Figures/fig1.png)
 
-Fig. 1 Overview of CoVFit.
+Fig. 1 Overview of CoVFit.  
 A) Conceptual framework of CoVFit. CoVFit is a protein language model designed to predict the relative fitness (Re) of SARS- 
     CoV-2 variants based  on their S protein sequences.  
 B) Outline of the training process used to develop CoVFit model instances.  
