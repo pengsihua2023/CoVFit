@@ -53,15 +53,15 @@ Fig. 2 Prediction performance of CoVFit.
 
 ![fig3](/Figures/fig3.png)
 
- Fig. 3 Prediction performance of CoVFit for unknown, future variants.
- A) Strategy to evaluate prediction performance for future variants. Model instances, referred to as CoVFitAug22, were trained using data for variants emerged before August 31, 2022. The model’s prediction performance for future variants was then evaluated on data for variants emerged after this date.
- B) Scatter plot for fitness prediction, aggregating results from five-fold cross1085 validation. Both past (light gray) and future (gray) variants are included. Regarding future variants, the mean prediction across five-fold cross validation datasets is shown. Spearman correlation for future variants was calculated using the mean prediction values. A dashed line with slope 1 and intercept 0 is shown.
+ Fig. 3 Prediction performance of CoVFit for unknown, future variants.  
+ A) Strategy to evaluate prediction performance for future variants. Model instances, referred to as CoVFitAug22, were trained using data for variants emerged before August 31, 2022. The model’s prediction performance for future variants was then evaluated on data for variants emerged after this date.  
+ B) Scatter plot for fitness prediction, aggregating results from five-fold cross1085 validation. Both past (light gray) and future (gray) variants are included. Regarding future variants, the mean prediction across five-fold cross validation datasets is shown. Spearman correlation for future variants was calculated using the mean prediction values. A dashed line with slope 1 and intercept 0 is shown.  
  C) Scatter plot for fitness prediction including only future variants. Mean (dot) and standard deviation (error bar) across the five-fold prediction results are shown. Color denotes the Nextclade clade classification. In addition to the
- line with slope 1 and intercept 0 (black), the estimated linear regression line, based on the mean prediction values, (gray) is shown.
- D) Scatter plot inherited from (C) but colored according to whether a variant belongs to the XBB lineage.
- E) Spearman’s correlation scores for the fitness of future variants in each country.
- F) Comparison of predicted fitness among major variants. Predicted fitness value in each country (top), mean observed fitness value across countries (second from top), representative mutations defining these variants (second from bottom), and number of variant sequences included in the past dataset (bottom), are shown.
- G) Comparison of prediction performance among methods. Spearman’s correlation score (top) and estimated regression slope (bottom) are shown. Each cross-validation fold’s score is represented by a cross, with the mean (dot) and standard deviation (error bar). Numbers in gray denote the mean values.
+ line with slope 1 and intercept 0 (black), the estimated linear regression line, based on the mean prediction values, (gray) is shown.  
+ D) Scatter plot inherited from (C) but colored according to whether a variant belongs to the XBB lineage.  
+ E) Spearman’s correlation scores for the fitness of future variants in each country.  
+ F) Comparison of predicted fitness among major variants. Predicted fitness value in each country (top), mean observed fitness value across countries (second from top), representative mutations defining these variants (second from bottom), and number of variant sequences included in the past dataset (bottom), are shown.  
+ G) Comparison of prediction performance among methods. Spearman’s correlation score (top) and estimated regression slope (bottom) are shown. Each cross-validation fold’s score is represented by a cross, with the mean (dot) and standard deviation (error bar). Numbers in gray denote the mean values.  
 
 基因型-适应性数据集因此使用2022年8月31日的截止日期进行了划分。应用此截止日期，Omicron系列在2022年末至2023年间出现的，包括BQ.1（及其亚系BQ.1.1；支系22E）、CH.1.1（支系23C）、XBB系列（支系22F、23A、23B、23D、23E和23F）和BA.2.86（支系23I）被排除在过去的数据集之外（图3A）。这个截止日期使我们能够测试在两种不同的进化情景下适应性提升的预测性能：顺序进化（BQ.1和CH.1.1分别从BA.5和BA.2.75出现）和跃变式进化（XBB从BA.2出现）。
 
@@ -81,41 +81,22 @@ Fig. 2 Prediction performance of CoVFit.
 为了深入了解SARS-CoV-2的适应性格局，我们开发了基于CoVFit的系统发生学框架，分析其进化过程中的适应性提升（图4）。首先，我们构建了一个包含11,098个变体的系统发生树，这些变体对应于编码各自S蛋白基因型的病毒基因组序列。随后，我们重建了树内部节点的祖先S蛋白序列（图4A）。然后，我们利用最新的CoVFitNov23模型推断了所有节点的适应性，这些节点代表了观察到的和重建的祖先序列（图4B及Omicron和所有谱系的图S6）。我们使用五折交叉验证方案生成的模型实例，为每个节点获得了五个预测的适应性值及其平均值和标准误差。最后，我们通过比较给定节点与其父节点之间的预测适应性值，识别了适应性提升在统计上显著的分支（误差发现率；FDR<0.1）。 
 
 ![fig4](/Figures/fig4.png)
-1110 Fig. 4 Detection of fitness elevation events during Omicron diversification.
-1111 A) Scheme to detect phylogenetic branches with fitness elevation utilizing CoVFit
-1112 models.
-1113 B) Inference of change in fitness through Omicron’s evolution. The maximum
-1114 likelihood (ML) tree of Omicron lineages is shown. Branch color indicates an
-1115 inferred fitness value for each phylogenetic node, including both observed and
-1116 reconstructed ancestral genotypes of S proteins in the phylogenetic tree.
-1117 C) Detection of fitness elevation events during Omicron’s evolution. Dot color
-1118 indicates inferred fitness gain in each branch, calculated as difference in
-1119 predicted fitness between a node and its parental node.
-1120 D) Mean fitness gain over a specific mutation during Omicron evolution. Since
-1121 some mutations have been acquired multiple times, the mean value of fitness
-1122 gain among acquisition events was used as the “fitness gain [per mutation]”
-1123 score. Top 20 mutations regarding this score are shown with the protein
-1124 domain information.
-1125 E) Enrichment of fitness-associated mutations in the RBD, particularly in its RBM.
-1126 The negative score is clipped to 0.
-1127 F) Mapping the site-wise fitness gain score on the 3D structure of the ancestral
-1128 D614G S protein (PDB: 7BNN)49. If multiple mutation types are present in a
-1129 specific site, the maximum value is shown as the “fitness gain [per site]” score.
-
-Amino acid side chains for the top 15 sites regarding 1130 this score are shown as
-1131 sphere. The plot was generated using Chimera X50.
-1132 G) Association of fitness gain rank with the mean mAb escape score. This
-1133 escape score was calculated as the mean of the escape score across mAbs
-1134 over a mutation. The ND group includes mutations not observed in our
-1135 phylogenetic analysis.
-1136 H) Association of the fitness gain [per mutation] score with the inferred
-1137 acquisition count. Estimated regression curve (line) with standard error
-1138 (ribbon) by Poisson regression using all mutations are shown. In addition, the
-1139 Nagelkerke's pseudo R2 values for Poisson regression analyses using all
-1140 mutations, RBD mutations, and non-RBD mutations are shown.
-
-
-
+Fig. 4 Detection of fitness elevation events during Omicron diversification.  
+A) Scheme to detect phylogenetic branches with fitness elevation utilizing CoVFit models.    
+B) Inference of change in fitness through Omicron’s evolution. The maximum likelihood (ML) tree of Omicron lineages is shown. 
+   Branch color indicates an inferred fitness value for each phylogenetic node, including both observed and reconstructed 
+   ancestral genotypes of S proteins in the phylogenetic tree.  
+C) Detection of fitness elevation events during Omicron’s evolution. Dot color indicates inferred fitness gain in each branch, 
+   calculated as difference in predicted fitness between a node and its parental node.  
+D) Mean fitness gain over a specific mutation during Omicron evolution. Since some mutations have been acquired multiple 
+   times, the mean value of fitness gain among acquisition events was used as the “fitness gain [per mutation]”
+   score. Top 20 mutations regarding this score are shown with the protein domain information.    
+E) Enrichment of fitness-associated mutations in the RBD, particularly in its RBM. The negative score is clipped to 0.  
+F) Mapping the site-wise fitness gain score on the 3D structure of the ancestral D614G S protein (PDB: 7BNN)49. If multiple mutation types are present in a specific site, the maximum value is shown as the “fitness gain [per site]” score. Amino acid side chains for the top 15 sites regarding 1130 this score are shown as sphere.   
+   The plot was generated using Chimera X50.  
+G) Association of fitness gain rank with the mean mAb escape score. This escape score was calculated as the mean of the escape 
+   score across mAbs over a mutation. The ND group includes mutations not observed in our phylogenetic analysis.  
+H) Association of the fitness gain [per mutation] score with the inferred acquisition count. Estimated regression curve (line) with standard error  (ribbon) by Poisson regression using all mutations are shown. In addition, the Nagelkerke's pseudo R2 values for Poisson regression analyses using all mutations, RBD mutations, and non-RBD mutations are shown.   
 
 在获得S蛋白突变的9,846个分支中，有549个（5.6%）分支被识别为显著适应性提升（图S6），包括Omicron谱系中的334个分支（图4C）。我们观察到，在代表主要谱系的最近共同祖先（MRCA）的分支以及在其后续多样化过程中，病毒适应性均有所增加（图4C和S6）。  
 
@@ -126,21 +107,16 @@ Amino acid side chains for the top 15 sites regarding 1130 this score are shown 
 我们发现，某些突变在特定的系统发生谱系中过度代表。例如，虽然R346T替换在Omicron谱系中趋同获得，但F456L替换在XBB谱系中明显过度代表（图5A）。为了量化F456L在不同谱系中的适应性效应差异，我们执行了体外突变扫描分析，利用CoVFitNov23通过计算在各种S蛋白骨架中诱导F456L，推断由此替换引起的适应性增益（图5B）。预测的F456L在XBB谱系中的适应性增益明显高于其他谱系。这些结果表明，F456L增加适应性的影响特定于XBB谱系。  
 
 ![fig5](/Figures/fig5.png)
-1142 Fig. 5 Context specific effect of the F456L substitution.
-1143 A) Examples of convergent acquisitions of specific substitutions. A node
-1144 indicates the acquisition events, and node color denotes fitness gain at the
-1145 acquisition events. Branch color denotes the presence (gray) or absence (light
-1146 gray) of specific substitutions in the reconstructed ancestral S protein
-1147 sequences.
-1148 B) Fitness gain upon F456L in each backbone S protein sequence, inferred by
-1149 in silico mutational scanning using CoVFit.
-1150 C) Site-wise immune escape score for the ancestral D614G strain, BA.2, and
-1151 XBB variants, estimated by mAb escape estimator32 based on Cao’s DMS
-1152 data29. Top 5 sites regarding the escape score are annotated.
-1153 D) Effect of F456L on the S protein’s expression (stability) and ACE2-binding
-1154 affinity, extracted from publicly available DMS data from Taylor and Starr31.
-1155 Dot color indicates inferred fitness gain shown in (B). Higher values indicate
-1156 enhanced higher expression and ACE2 binding affinity values.
+ Fig. 5 Context specific effect of the F456L substitution.  
+ A) Examples of convergent acquisitions of specific substitutions. A node indicates the acquisition events, and node color 
+    denotes fitness gain at the acquisition events. Branch color denotes the presence (gray) or absence (light gray) of 
+    specific substitutions in the reconstructed ancestral S protein sequences.   
+ B) Fitness gain upon F456L in each backbone S protein sequence, inferred by in silico mutational scanning using CoVFit.
+ C) Site-wise immune escape score for the ancestral D614G strain, BA.2, and XBB variants, estimated by mAb escape estimator32 
+    based on Cao’s DMS data29. Top 5 sites regarding the escape score are annotated.  
+D) Effect of F456L on the S protein’s expression (stability) and ACE2-binding affinity, extracted from publicly available DMS 
+   data from Taylor and Starr31. Dot color indicates inferred fitness gain shown in (B). Higher values indicate enhanced 
+   higher expression and ACE2 binding affinity values.  
 
 为了获得关于XBB特异的F456L效应对病毒适应性的机械洞察，我们分析了已发表的DMS数据。这包括Cao等人的mAb中和数据以及Taylor和Starr的RBD ACE2结合亲和力和蛋白稳定性数据。根据逃逸估算器数据，在包括祖先D614G菌株的S蛋白在内的各种谱系中，F456处的替换对中和逃逸的影响是最大的（图5C）。另一方面，这种突变在ACE2结合和蛋白表达上的效果因S蛋白背景而异。虽然F456L增强了XBB S蛋白的ACE2结合和蛋白表达，但这种替换在所有测试的S背景中对ACE2结合和/或蛋白表达有负面影响（图5D）。F456L在ACE2结合和表达上的非破坏性效果，独特于XBB，在之前的研究中的RBD和完整S DMS试验中已得到确认。这些结果表明，F456L在XBB的S蛋白上提供了优先效果，但在其他谱系的S蛋白上具有双刃剑效果。总的来说，F456L在适应性上的XBB特异性正面效应可以通过XBB特有的去除这种突变的有害效应来解释。这个例子验证了CoVFit在背景特定方式推断突变效应的有效性。  
 
