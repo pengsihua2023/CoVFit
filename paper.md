@@ -28,6 +28,9 @@ Fig. 1 Overview of CoVFit.
 A) Conceptual framework of CoVFit. CoVFit is a protein language model designed to predict the relative fitness (Re) of SARS- 
     CoV-2 variants based  on their S protein sequences.  
 B) Outline of the training process used to develop CoVFit model instances.  
+图 1 CoVFit概览。 
+A) CoVFit的概念框架。CoVFit是一个蛋白质语言模型，旨在根据SARS-CoV-2变体的S蛋白序列预测其相对适应性（Re）。  
+B) 用于开发CoVFit模型实例的训练过程概述。  
 
 为了组建基因型–适应性数据集，我们首先将病毒序列分类为S蛋白基因型，定义为一组共享S蛋白中一组独特突变的病毒。随后，我们通过将多项逻辑模型拟合至2023年11月2日前从GISAID（https://gisaid.org/）获得的基因组监测数据，估算了每个基因型在每个国家的Re，如之前所述。因此，我们获得了总共21,751个基因型–适应性数据点，涵盖了17个国家中的12,914个基因型（见图1B和图S2A）。与先前的研究一致，后期出现的变体展示出更高的Re值，表明变体的Re在进化过程中逐渐增加（见图S2A）。  
 
@@ -47,6 +50,11 @@ Fig. 2 Prediction performance of CoVFit.
     so that the 0.1 percentile and 99.9 percentile points fall between 0 and 1. A dashed line with a slope 1 and intercept 0 
     is shown.  
  C) Scatter plot inherited from (B) but colored by the emergence date of each genotype.  
+
+ 图 2 CoVFit的预测性能。  
+A) 预测的相对适应性值和mAb中和逃逸分数的Spearman相关性得分。每个交叉验证折的得分由一个点表示，均值（条形图）和标准差（误差线）也显示出来。在每个表位群中计算mAbs的相关性。  
+B) 适应性预测的散点图，汇总了五折交叉验证的结果。每个点代表特定国家中某个病毒基因型的结果。点按Nextclade谱系进行着色。相对适应性值进行了缩放，使得0.1百分位数和99.9百分位数的点落在0和1之间。显示了一条斜率为1且截距为0的虚线。  
+C) 散点图继承自（B），但按每个基因型的出现日期进行着色。  
  
 ### CoVFit对未知、未来变体的预测性能
 这项研究旨在开发一种预测模型，能够准确评估尚未出现的变体以及已知变体的适应性。然而，对于模型未知的变体，特别是那些在模型创建后出现的未来变体的预测性能无法评估，如果训练数据包含与测试数据集高度相似的变体，就像上面的性能测试一样（图2）。为了评估模型对这些未来变体的性能，我们通过根据变体出现日期将现有基因型-适应性数据集分为“过去”和“未来”变体，生成了数据集（图3A）。随后，我们仅使用过去变体数据集生成了五个CoVFit实例，并使用五折交叉验证方案，然后评估其对未来变体数据集的性能。  
@@ -61,7 +69,15 @@ Fig. 2 Prediction performance of CoVFit.
  D) Scatter plot inherited from (C) but colored according to whether a variant belongs to the XBB lineage.  
  E) Spearman’s correlation scores for the fitness of future variants in each country.  
  F) Comparison of predicted fitness among major variants. Predicted fitness value in each country (top), mean observed fitness value across countries (second from top), representative mutations defining these variants (second from bottom), and number of variant sequences included in the past dataset (bottom), are shown.  
- G) Comparison of prediction performance among methods. Spearman’s correlation score (top) and estimated regression slope (bottom) are shown. Each cross-validation fold’s score is represented by a cross, with the mean (dot) and standard deviation (error bar). Numbers in gray denote the mean values.  
+ G) Comparison of prediction performance among methods. Spearman’s correlation score (top) and estimated regression slope (bottom) are shown. Each cross-validation fold’s score is represented by a cross, with the mean (dot) and standard deviation (error bar). Numbers in gray denote the mean values. 
+ 图 3 CoVFit对未知未来变体的预测性能。  
+A) 评估未来变体预测性能的策略。被称为CoVFitAug22的模型实例，使用在2022年8月31日之前出现的变体数据进行训练。然后在此日期之后出现的变体数据上评估模型对未来变体的预测性能。  
+B) 适应性预测的散点图，汇总了五折交叉验证的结果。包括过去的（浅灰色）和未来的（灰色）变体。对于未来变体，显示了五折交叉验证数据集的平均预测。使用平均预测值计算未来变体的Spearman相关性。显示了一条斜率为1且截距为0的虚线。  
+C) 仅包括未来变体的适应性预测散点图。显示了五次预测结果的平均值（点）和标准差（误差线）。颜色表示Nextclade谱系分类。除了斜率为1且截距为0的线（黑色），还显示了基于平均预测值的估计线性回归线（灰色）。  
+D) 散点图继承自（C），但按照变体是否属于XBB谱系进行着色。  
+E) 各国未来变体适应性的Spearman相关性得分。 
+F) 主要变体之间预测适应性的比较。显示了每个国家的预测适应性值（顶部）、各国观察到的平均适应性值（第二顶部）、定义这些变体的代表性突变（第二底部）和包括在过去数据集中的变体序列数量（底部）。 
+G) 方法之间预测性能的比较。显示了Spearman相关性得分（顶部）和估计回归斜率（底部）。每个交叉验证折的得分由一个叉表示，平均值（点）和标准差（误差线）。灰色数字表示平均值。 
 
 基因型-适应性数据集因此使用2022年8月31日的截止日期进行了划分。应用此截止日期，Omicron系列在2022年末至2023年间出现的，包括BQ.1（及其亚系BQ.1.1；支系22E）、CH.1.1（支系23C）、XBB系列（支系22F、23A、23B、23D、23E和23F）和BA.2.86（支系23I）被排除在过去的数据集之外（图3A）。这个截止日期使我们能够测试在两种不同的进化情景下适应性提升的预测性能：顺序进化（BQ.1和CH.1.1分别从BA.5和BA.2.75出现）和跃变式进化（XBB从BA.2出现）。
 
@@ -96,7 +112,16 @@ F) Mapping the site-wise fitness gain score on the 3D structure of the ancestral
    The plot was generated using Chimera X50.  
 G) Association of fitness gain rank with the mean mAb escape score. This escape score was calculated as the mean of the escape 
    score across mAbs over a mutation. The ND group includes mutations not observed in our phylogenetic analysis.  
-H) Association of the fitness gain [per mutation] score with the inferred acquisition count. Estimated regression curve (line) with standard error  (ribbon) by Poisson regression using all mutations are shown. In addition, the Nagelkerke's pseudo R2 values for Poisson regression analyses using all mutations, RBD mutations, and non-RBD mutations are shown.   
+H) Association of the fitness gain [per mutation] score with the inferred acquisition count. Estimated regression curve (line) with standard error  (ribbon) by Poisson regression using all mutations are shown. In addition, the Nagelkerke's pseudo R2 values for Poisson regression analyses using all mutations, RBD mutations, and non-RBD mutations are shown. 
+图 4 检测奥密克戎分化过程中的适应性提升事件。 
+A) 利用CoVFit模型检测具有适应性提升的系统发育分支的方案。 
+B) 通过奥密克戎的演化推断适应性变化。显示了奥密克戎系列的最大似然（ML）树。分支颜色表示每个系统发育节点的推断适应性值，包括系统发育树中观察到的和重建的S蛋白祖先基因型。 
+C) 在奥密克戎的演化过程中检测适应性提升事件。点颜色表示每个分支的推断适应性增益，计算方法是节点与其父节点之间预测适应性的差异。 
+D) 奥密克戎演化过程中特定突变的平均适应性增益。由于一些突变被多次获得，适应性增益的平均值被用作“每次突变的适应性增益”得分。展示了与此得分相关的前20个突变及其蛋白质结构域信息。 
+E) RBD中与适应性相关的突变的富集，尤其是在其RBM中。负分数被修剪至0。 
+F) 在祖先D614G S蛋白的3D结构上（PDB: 7BNN）49 映射逐位点适应性增益得分。如果特定位点存在多种突变类型，则显示为“每个位点的适应性增益”最高值。关于此得分的前15个位点的氨基酸侧链以球形显示。图由Chimera X50生成。 
+G) 适应性增益排名与平均mAb逃逸得分的关联。这个逃逸得分是通过mAb上的突变计算的逃逸得分的平均值。ND组包括在我们的系统发育分析中未观察到的突变。 
+H) 每次突变的适应性增益得分与推断的获得次数的关联。使用所有突变的泊松回归显示了估计的回归曲线（线）和标准误差（带）。此外，显示了使用所有突变、RBD突变和非RBD突变的泊松回归分析的Nagelkerke的伪R2值。 
 
 在获得S蛋白突变的9,846个分支中，有549个（5.6%）分支被识别为显著适应性提升（图S6），包括Omicron谱系中的334个分支（图4C）。我们观察到，在代表主要谱系的最近共同祖先（MRCA）的分支以及在其后续多样化过程中，病毒适应性均有所增加（图4C和S6）。  
 
@@ -118,6 +143,12 @@ D) Effect of F456L on the S protein’s expression (stability) and ACE2-binding 
    data from Taylor and Starr31. Dot color indicates inferred fitness gain shown in (B). Higher values indicate enhanced 
    higher expression and ACE2 binding affinity values.  
 
+图 5 F456L替换的特定环境效应。 
+A) 特定替换的趋同获得例子。节点表示获得事件，节点颜色表示获得事件时的适应性增益。分支颜色表示在重建的祖先S蛋白序列中特定替换的存在（灰色）或缺失（浅灰色）。 
+B) 使用CoVFit进行体外突变扫描推断的，每个骨架S蛋白序列中F456L的适应性增益。
+C) 基于曹的DMS数据29，由mAb逃逸估计器32估计的祖先D614G菌株、BA.2和XBB变体的逐位免疫逃逸得分。关于逃逸得分的前5个位点进行了注释。 
+D) F456L对S蛋白表达（稳定性）和ACE2结合亲和力的影响，从Taylor和Starr31的公开可用DMS数据中提取。点颜色表示在(B)中显示的推断适应性增益。较高的值表示增强的表达和ACE2结合亲和力值。 
+
 为了获得关于XBB特异的F456L效应对病毒适应性的机械洞察，我们分析了已发表的DMS数据。这包括Cao等人的mAb中和数据以及Taylor和Starr的RBD ACE2结合亲和力和蛋白稳定性数据。根据逃逸估算器数据，在包括祖先D614G菌株的S蛋白在内的各种谱系中，F456处的替换对中和逃逸的影响是最大的（图5C）。另一方面，这种突变在ACE2结合和蛋白表达上的效果因S蛋白背景而异。虽然F456L增强了XBB S蛋白的ACE2结合和蛋白表达，但这种替换在所有测试的S背景中对ACE2结合和/或蛋白表达有负面影响（图5D）。F456L在ACE2结合和表达上的非破坏性效果，独特于XBB，在之前的研究中的RBD和完整S DMS试验中已得到确认。这些结果表明，F456L在XBB的S蛋白上提供了优先效果，但在其他谱系的S蛋白上具有双刃剑效果。总的来说，F456L在适应性上的XBB特异性正面效应可以通过XBB特有的去除这种突变的有害效应来解释。这个例子验证了CoVFit在背景特定方式推断突变效应的有效性。  
 
 ### 基于CoVFit的体外突变扫描（DMS）预测潜在变体的适应性
@@ -133,6 +164,10 @@ D) Effect of F456L on the S protein’s expression (stability) and ACE2-binding 
  B) Heatmap depicting inferred fitness gain by each amino acid substitution.  
  C) Change in frequency of JN.1 subvariants harboring substitutions in specific amino acid sites, within the JN.1 population.      The genome surveillance data from December 1, 2023, to February 29, 2024, was used. Frequencies were calculated using 7- 
     day bins. Total sequence number 1166 is shown for each viral group.  
+图 6 基于CoVFit的JN.1变体体外DMS研究。 
+A) 使用CoVFitNov23对JN.1的S蛋白进行体外DMS推断的氨基酸位点的适应性增益[每个位点]得分排名。仅显示得分为正的位点。 
+B) 热图描述了每种氨基酸替换的推断适应性增益。 
+C) JN.1人群中带有特定氨基酸位点替换的JN.1亚型的频率变化。使用2023年12月1日至2024年2月29日的基因组监测数据。频率使用7天间隔计算。每个病毒组的总序列数为1166。 
 
 ### CoVFit-CLI工具
 
