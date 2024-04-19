@@ -53,37 +53,15 @@ Fig. 2 Prediction performance of CoVFit.
 
 ![fig3](/Figures/fig3.png)
 
-1078 Fig. 3 Prediction performance of CoVFit for unknown, future variants.
-1079 A) Strategy to evaluate prediction performance for future variants. Model
-1080 instances, referred to as CoVFitAug22, were trained using data for variants
-1081 emerged before August 31, 2022. The model’s prediction performance for
-1082 future variants was then evaluated on data for variants emerged after this
-1083 date.
-1084 B) Scatter plot for fitness prediction, aggregating results from five-fold cross1085
-validation. Both past (light gray) and future (gray) variants are included.
-1086 Regarding future variants, the mean prediction across five-fold cross1087
-validation datasets is shown. Spearman correlation for future variants was
-1088 calculated using the mean prediction values. A dashed line with slope 1 and
-1089 intercept 0 is shown.
-1090 C) Scatter plot for fitness prediction including only future variants. Mean (dot)
-1091 and standard deviation (error bar) across the five-fold prediction results are
-1092 shown. Color denotes the Nextclade clade classification. In addition to the
-1093 line with slope 1 and intercept 0 (black), the estimated linear regression line,
-based on the mean prediction 
-1094 values, (gray) is shown.
-1095 D) Scatter plot inherited from (C) but colored according to whether a variant
-1096 belongs to the XBB lineage.
-1097 E) Spearman’s correlation scores for the fitness of future variants in each
-1098 country.
-1099 F) Comparison of predicted fitness among major variants. Predicted fitness
-1100 value in each country (top), mean observed fitness value across countries
-1101 (second from top), representative mutations defining these variants
-1102 (second from bottom), and number of variant sequences included in the
-1103 past dataset (bottom), are shown.
-1104 G) Comparison of prediction performance among methods. Spearman’s
-1105 correlation score (top) and estimated regression slope (bottom) are shown.
-1106 Each cross-validation fold’s score is represented by a cross, with the mean
-1107 (dot) and
+ Fig. 3 Prediction performance of CoVFit for unknown, future variants.
+ A) Strategy to evaluate prediction performance for future variants. Model instances, referred to as CoVFitAug22, were trained using data for variants emerged before August 31, 2022. The model’s prediction performance for future variants was then evaluated on data for variants emerged after this date.
+ B) Scatter plot for fitness prediction, aggregating results from five-fold cross1085 validation. Both past (light gray) and future (gray) variants are included. Regarding future variants, the mean prediction across five-fold cross validation datasets is shown. Spearman correlation for future variants was calculated using the mean prediction values. A dashed line with slope 1 and intercept 0 is shown.
+ C) Scatter plot for fitness prediction including only future variants. Mean (dot) and standard deviation (error bar) across the five-fold prediction results are shown. Color denotes the Nextclade clade classification. In addition to the
+ line with slope 1 and intercept 0 (black), the estimated linear regression line, based on the mean prediction values, (gray) is shown.
+ D) Scatter plot inherited from (C) but colored according to whether a variant belongs to the XBB lineage.
+ E) Spearman’s correlation scores for the fitness of future variants in each country.
+ F) Comparison of predicted fitness among major variants. Predicted fitness value in each country (top), mean observed fitness value across countries (second from top), representative mutations defining these variants (second from bottom), and number of variant sequences included in the past dataset (bottom), are shown.
+ G) Comparison of prediction performance among methods. Spearman’s correlation score (top) and estimated regression slope (bottom) are shown. Each cross-validation fold’s score is represented by a cross, with the mean (dot) and standard deviation (error bar). Numbers in gray denote the mean values.
 
 基因型-适应性数据集因此使用2022年8月31日的截止日期进行了划分。应用此截止日期，Omicron系列在2022年末至2023年间出现的，包括BQ.1（及其亚系BQ.1.1；支系22E）、CH.1.1（支系23C）、XBB系列（支系22F、23A、23B、23D、23E和23F）和BA.2.86（支系23I）被排除在过去的数据集之外（图3A）。这个截止日期使我们能够测试在两种不同的进化情景下适应性提升的预测性能：顺序进化（BQ.1和CH.1.1分别从BA.5和BA.2.75出现）和跃变式进化（XBB从BA.2出现）。
 
