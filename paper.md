@@ -113,15 +113,15 @@ F) Mapping the site-wise fitness gain score on the 3D structure of the ancestral
 G) Association of fitness gain rank with the mean mAb escape score. This escape score was calculated as the mean of the escape 
    score across mAbs over a mutation. The ND group includes mutations not observed in our phylogenetic analysis.  
 H) Association of the fitness gain [per mutation] score with the inferred acquisition count. Estimated regression curve (line) with standard error  (ribbon) by Poisson regression using all mutations are shown. In addition, the Nagelkerke's pseudo R2 values for Poisson regression analyses using all mutations, RBD mutations, and non-RBD mutations are shown. 
-图 4 检测奥密克戎分化过程中的适应性提升事件。 
-A) 利用CoVFit模型检测具有适应性提升的系统发育分支的方案。 
-B) 通过奥密克戎的演化推断适应性变化。显示了奥密克戎系列的最大似然（ML）树。分支颜色表示每个系统发育节点的推断适应性值，包括系统发育树中观察到的和重建的S蛋白祖先基因型。 
-C) 在奥密克戎的演化过程中检测适应性提升事件。点颜色表示每个分支的推断适应性增益，计算方法是节点与其父节点之间预测适应性的差异。 
-D) 奥密克戎演化过程中特定突变的平均适应性增益。由于一些突变被多次获得，适应性增益的平均值被用作“每次突变的适应性增益”得分。展示了与此得分相关的前20个突变及其蛋白质结构域信息。 
-E) RBD中与适应性相关的突变的富集，尤其是在其RBM中。负分数被修剪至0。 
-F) 在祖先D614G S蛋白的3D结构上（PDB: 7BNN）49 映射逐位点适应性增益得分。如果特定位点存在多种突变类型，则显示为“每个位点的适应性增益”最高值。关于此得分的前15个位点的氨基酸侧链以球形显示。图由Chimera X50生成。 
-G) 适应性增益排名与平均mAb逃逸得分的关联。这个逃逸得分是通过mAb上的突变计算的逃逸得分的平均值。ND组包括在我们的系统发育分析中未观察到的突变。 
-H) 每次突变的适应性增益得分与推断的获得次数的关联。使用所有突变的泊松回归显示了估计的回归曲线（线）和标准误差（带）。此外，显示了使用所有突变、RBD突变和非RBD突变的泊松回归分析的Nagelkerke的伪R2值。 
+图 4 检测奥密克戎分化过程中的适应性提升事件。  
+A) 利用CoVFit模型检测具有适应性提升的系统发育分支的方案。  
+B) 通过奥密克戎的演化推断适应性变化。显示了奥密克戎系列的最大似然（ML）树。分支颜色表示每个系统发育节点的推断适应性值，包括系统发育树中观察到的和重建的S蛋白祖先基因型。  
+C) 在奥密克戎的演化过程中检测适应性提升事件。点颜色表示每个分支的推断适应性增益，计算方法是节点与其父节点之间预测适应性的差异。  
+D) 奥密克戎演化过程中特定突变的平均适应性增益。由于一些突变被多次获得，适应性增益的平均值被用作“每次突变的适应性增益”得分。展示了与此得分相关的前20个突变及其蛋白质结构域信息。  
+E) RBD中与适应性相关的突变的富集，尤其是在其RBM中。负分数被修剪至0。  
+F) 在祖先D614G S蛋白的3D结构上（PDB: 7BNN）49 映射逐位点适应性增益得分。如果特定位点存在多种突变类型，则显示为“每个位点的适应性增益”最高值。关于此得分的前15个位点的氨基酸侧链以球形显示。图由Chimera X50生成。  
+G) 适应性增益排名与平均mAb逃逸得分的关联。这个逃逸得分是通过mAb上的突变计算的逃逸得分的平均值。ND组包括在我们的系统发育分析中未观察到的突变。  
+H) 每次突变的适应性增益得分与推断的获得次数的关联。使用所有突变的泊松回归显示了估计的回归曲线（线）和标准误差（带）。此外，显示了使用所有突变、RBD突变和非RBD突变的泊松回归分析的Nagelkerke的伪R2值。  
 
 在获得S蛋白突变的9,846个分支中，有549个（5.6%）分支被识别为显著适应性提升（图S6），包括Omicron谱系中的334个分支（图4C）。我们观察到，在代表主要谱系的最近共同祖先（MRCA）的分支以及在其后续多样化过程中，病毒适应性均有所增加（图4C和S6）。  
 
