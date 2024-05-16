@@ -1,3 +1,28 @@
+## 去除冗余序列
+
+```
+from Bio import SeqIO
+
+# 输入文件名
+input_file = "2020-1-3.fasta"
+output_file = "2020-1-3_unique.fasta"
+
+# 使用集合来存储唯一序列
+unique_sequences = set()
+
+# 读取FASTA文件
+with open(input_file, "r") as infile, open(output_file, "w") as outfile:
+    for record in SeqIO.parse(infile, "fasta"):
+        seq_str = str(record.seq)
+        if seq_str not in unique_sequences:
+            unique_sequences.add(seq_str)
+            # 将唯一序列写入新的FASTA文件
+            SeqIO.write(record, outfile, "fasta")
+
+print(f"冗余序列已删除，唯一序列已保存到 {output_file}")
+
+```
+
 ## 安装多序列比对软件
 ```
 conda install -c bioconda clustalo  
